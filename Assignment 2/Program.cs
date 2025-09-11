@@ -1,35 +1,21 @@
 ﻿using System;
+
 class Program
 {
     static void Main()
     {
-        // Example age
+        // Example variables
         int age = 25;
-
-        // Example height in feet
         float height = 5.9f;
-
-        // Example weight in kg
         double weight = 70.5;
-
-        // Example grade   
         char grade = 'A';
-
-        // Example boolean
         bool isStudent = true;
-
-        // Example name
         string name = "Hasan Gosain";
-
-        // Example salary
         decimal salary = 50000.75m;
-
-        // Example level
         byte level = 1;
-        
 
-        //display the variables
-        Console.WriteLine($"Name: {name}");// Using string interpolation
+        // Display variables
+        Console.WriteLine($"Name: {name}");
         Console.WriteLine("Age: " + age);
         Console.WriteLine("Height: " + height);
         Console.WriteLine("Weight: " + weight);
@@ -37,6 +23,22 @@ class Program
         Console.WriteLine("Is Student: " + isStudent);
         Console.WriteLine("Salary: " + salary);
         Console.WriteLine("Level: " + level);
-        
+
+        // Calculate age in days
+        AgeCalculator calculator = new AgeCalculator();
+        int ageInDays = calculator.CalculateAgeInDays(new DateTime(1998, 8, 21));
+        Console.WriteLine($"You are {ageInDays} days old.");
+    }
+}
+
+// AgeCalculator class
+class AgeCalculator
+{
+    // Non-static method
+    public int CalculateAgeInDays(DateTime birthDate)
+    {
+        DateTime today = DateTime.Now;
+        TimeSpan age = today - birthDate;
+        return age.Days;
     }
 }
